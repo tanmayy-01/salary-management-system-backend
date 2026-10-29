@@ -10,14 +10,13 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // one-to-one Inverse: Employee profile belongs back to a single User account
-      Employee.hasOne(models.User, {
+      Employee.belongsTo(models.User, {
         foreignKey: 'user_id',
         as: 'user'
       })
 
       // one-to-many: An employee can submit many daily attendance check-ins
-      Employee.hasMany(models.Attendance,{
+      Employee.hasMany(models.Attendance, {
         foreignKey: 'employee_id',
         as: 'attendances',
         onDelete: 'CASCADE'
