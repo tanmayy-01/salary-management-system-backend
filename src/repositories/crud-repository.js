@@ -32,6 +32,18 @@ class CrudRepository {
         return await this.model.findAll(options);
     }
 
+    async findOne(options = {}) {
+        return await this.model.findOne(options);
+    }
+
+    async findAndCountAll(options = {}) {
+        return await this.model.findAndCountAll(options);
+    }
+
+    async count(options = {}) {
+        return await this.model.count(options);
+    }
+
     async update(id, data, options = {}) {
         const [affectedRows] = await this.model.update(data, {
             where: { id },

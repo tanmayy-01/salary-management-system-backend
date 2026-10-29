@@ -7,7 +7,7 @@ class RoleRepository extends CrudRepository {
     }
 
     async getRoleByName(roleName) {
-        return await this.model.findOne({
+        return await this.findOne({
             where: { role_name: roleName }
         });
     }
